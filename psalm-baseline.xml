@@ -118,6 +118,9 @@
     <InvalidReturnType>
       <code>void</code>
     </InvalidReturnType>
+    <UndefinedClass>
+      <code>\CurlHandle</code>
+    </UndefinedClass>
     <UndefinedDocblockClass>
       <code>resource|\CurlHandle</code>
     </UndefinedDocblockClass>
