@@ -115,7 +115,7 @@ class CurlFactory implements CurlFactoryInterface
                 && (\CURL_SSLVERSION_TLSv1_3 & \curl_version()['features']);
         }
 
-        return $supportsTls12;
+        return $supportsTls13;
     }
 
     public function release(EasyHandle $easy): void
