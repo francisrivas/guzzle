@@ -52,19 +52,6 @@ jobs:
       max-parallel: 10
       matrix:
         php: ['7.4', '8.0', '8.1', '8.2', '8.3']
-        psr7: ['^1.9.1', '^2.5.1']
-        include:
-          - php: '8.0'
-            psr7: '^1.9.1@dev'
-          - php: '8.3'
-            psr7: '^2.5.1@dev'
-        exclude:
-          - php: '8.1'
-            psr7: '^1.9.1'
-          - php: '8.2'
-            psr7: '^1.9.1'
-          - php: '8.3'
-            psr7: '^1.9.1'
 
     steps:
       - name: Set up PHP
@@ -88,7 +75,6 @@ jobs:
 
       - name: Download dependencies
         run: |
-          composer require --no-update "guzzlehttp/psr7:${{ matrix.psr7 }}"
           composer update --no-interaction --no-progress
 
       - name: Start test servers
