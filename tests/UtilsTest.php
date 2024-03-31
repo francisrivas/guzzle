@@ -43,7 +43,6 @@ class UtilsTest extends TestCase
 
         try {
             self::assertSame($output, Utils::describeType($input));
-            self::assertSame($output, GuzzleHttp\describe_type($input));
         } finally {
             if (extension_loaded('xdebug')) {
                 ini_set('xdebug.overload_var_dump', $originalOverload);
@@ -67,7 +66,6 @@ class UtilsTest extends TestCase
         ];
 
         self::assertSame($expected, Utils::headersFromLines($lines));
-        self::assertSame($expected, GuzzleHttp\headers_from_lines($lines));
     }
 
     public function testParsesHeadersFromLinesWithMultipleLines()
