@@ -39,7 +39,7 @@ You can add Guzzle as a dependency using Composer:
 
 .. code-block:: bash
 
-    composer require guzzlehttp/guzzle:^7.0
+    composer require guzzlehttp/guzzle:^8.0
 
 Alternatively, you can specify Guzzle as a dependency in your project's
 existing composer.json file:
@@ -48,7 +48,7 @@ existing composer.json file:
 
     {
       "require": {
-         "guzzlehttp/guzzle": "^7.0"
+         "guzzlehttp/guzzle": "^8.0"
       }
    }
 
@@ -66,13 +66,13 @@ Bleeding edge
 -------------
 
 During your development, you can keep up with the latest changes on the master
-branch by setting the version requirement for Guzzle to ``^7.0@dev``.
+branch by setting the version requirement for Guzzle to ``^8.0@dev``.
 
 .. code-block:: js
 
    {
       "require": {
-         "guzzlehttp/guzzle": "^7.0@dev"
+         "guzzlehttp/guzzle": "^8.0@dev"
       }
    }
 
