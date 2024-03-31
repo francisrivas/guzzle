@@ -570,7 +570,7 @@ class StreamHandlerTest extends TestCase
 
     public function testDoesSleep()
     {
-        $response = new response(200);
+        $response = new Response(200);
         Server::enqueue([$response]);
         $a = new StreamHandler();
         $request = new Request('GET', Server::$url);
@@ -643,8 +643,8 @@ class StreamHandlerTest extends TestCase
     public function testInvokesOnStatsOnSuccess()
     {
         Server::flush();
-        Server::enqueue([new Psr7\Response(200)]);
-        $req = new Psr7\Request('GET', Server::$url);
+        Server::enqueue([new Response(200)]);
+        $req = new Request('GET', Server::$url);
         $gotStats = null;
         $handler = new StreamHandler();
         $promise = $handler($req, [
@@ -668,7 +668,7 @@ class StreamHandlerTest extends TestCase
 
     public function testInvokesOnStatsOnError()
     {
-        $req = new Psr7\Request('GET', 'http://127.0.0.1:123');
+        $req = new Request('GET', 'http://127.0.0.1:123');
         $gotStats = null;
         $handler = new StreamHandler();
         $promise = $handler($req, [
@@ -698,8 +698,8 @@ class StreamHandlerTest extends TestCase
     public function testStreamIgnoresZeroTimeout()
     {
         Server::flush();
-        Server::enqueue([new Psr7\Response(200)]);
-        $req = new Psr7\Request('GET', Server::$url);
+        Server::enqueue([new Response(200)]);
+        $req = new Request('GET', Server::$url);
         $gotStats = null;
         $handler = new StreamHandler();
         $promise = $handler($req, [

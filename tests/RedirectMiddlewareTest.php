@@ -113,7 +113,7 @@ class RedirectMiddlewareTest extends TestCase
         try {
             $promise->wait();
             self::fail();
-        } catch (\GuzzleHttp\Exception\TooManyRedirectsException $e) {
+        } catch (TooManyRedirectsException $e) {
             self::assertSame(302, $e->getResponse()->getStatusCode());
         }
     }
