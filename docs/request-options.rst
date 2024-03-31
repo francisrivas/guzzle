@@ -587,7 +587,7 @@ idn_conversion
 :Types:
     - bool
     - int
-:Default: ``true`` if ``intl`` extension is available (and ICU library is 4.6+ for PHP 7.2+), ``false`` otherwise
+:Default: ``true`` if ``intl`` extension is available (and ICU library is 4.6+), ``false`` otherwise
 :Constant: ``GuzzleHttp\RequestOptions::IDN_CONVERSION``
 
 .. code-block:: php
