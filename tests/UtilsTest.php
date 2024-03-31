@@ -2,7 +2,6 @@
 
 namespace GuzzleHttp\Test;
 
-use GuzzleHttp;
 use GuzzleHttp\Utils;
 use PHPUnit\Framework\TestCase;
 
