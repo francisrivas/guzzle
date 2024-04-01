@@ -194,4 +194,7 @@ parameters:
 			message: "#^Parameter \\#3 \\$depth of function json_encode expects int\\<1, max\\>, int given\\.$#"
 			count: 1
 			path: src/Utils.php
-
+		-
+			message: "#^Class CurlHandle not found\\.$#"
+			count: 3
+			path: src/Handler/EasyHandle.php
