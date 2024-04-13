@@ -390,8 +390,10 @@ class CurlFactory implements CurlFactoryInterface
                 // The empty string enables all available decoders and implicitly
                 // sets a matching 'Accept-Encoding' header.
                 $conf[\CURLOPT_ENCODING] = '';
-                // But as the user did not specify any acceptable encodings we need
-                // to overwrite this implicit header with an empty one.
+                // But as the user did not specify any encoding preference,
+                // let’s leave it up to server by preventing curl from sending
+                // the header, which will be interpreted as 'Accept-Encoding: *'.
+                // https://www.rfc-editor.org/rfc/rfc9110#field.accept-encoding
                 $conf[\CURLOPT_HTTPHEADER][] = 'Accept-Encoding:';
             }
         }
