@@ -117,7 +117,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$mh of function curl_multi_exec expects resource, CurlMultiHandle\\|resource given\\.$#"
-			count: 1
+			count: 2
 			path: src/Handler/CurlMultiHandler.php
 
 		-
@@ -132,7 +132,7 @@ parameters:
 
 		-
 			message: "#^Parameter \\#1 \\$mh of function curl_multi_select expects resource, CurlMultiHandle\\|resource given\\.$#"
-			count: 1
+			count: 3
 			path: src/Handler/CurlMultiHandler.php
 
 		-
@@ -189,4 +189,3 @@ parameters:
 			message: "#^Parameter \\#3 \\$depth of function json_encode expects int\\<1, max\\>, int given\\.$#"
 			count: 1
 			path: src/Utils.php
-
