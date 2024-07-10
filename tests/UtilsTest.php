@@ -189,7 +189,7 @@ class UtilsTest extends TestCase
         \GuzzleHttp\json_decode('{{]]');
     }
 
-    public function testRedactsUserInfoInErrors()
+    public function testRedactUserinfoInUri()
     {
         $uri = new Uri('http://my_user:secretPass@localhost/');
 
