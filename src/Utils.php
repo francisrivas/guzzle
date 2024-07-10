@@ -381,4 +381,18 @@ EOT
 
         throw new \Error('ext-idn or symfony/polyfill-intl-idn not loaded or too old');
     }
+
+    /**
+     * Redacts the password in the userinfo part of a UriInterface.
+     */
+    public static function redactUserinfoInUri(UriInterface $uri): UriInterface
+    {
+        $userInfo = $uri->getUserInfo();
+
+        if (false !== ($pos = \strpos($userInfo, ':'))) {
+            return $uri->withUserInfo(\substr($userInfo, 0, $pos), '***');
+        }
+
+        return $uri;
+    }
 }

@@ -3,6 +3,7 @@
 namespace GuzzleHttp\Test;
 
 use GuzzleHttp;
+use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Utils;
 use PHPUnit\Framework\TestCase;
 
@@ -186,6 +187,13 @@ class UtilsTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
 
         \GuzzleHttp\json_decode('{{]]');
+    }
+
+    public function testRedactsUserInfoInErrors()
+    {
+        $uri = new Uri('http://my_user:secretPass@localhost/');
+
+        self::assertEquals('http://my_user:***@localhost/', Utils::redactUserinfoInUri($uri)->__toString());
     }
 }
 
