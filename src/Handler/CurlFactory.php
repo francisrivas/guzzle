@@ -200,7 +200,7 @@ class CurlFactory implements CurlFactoryInterface
             $ctx['error'],
             'see https://curl.haxx.se/libcurl/c/libcurl-errors.html'
         );
-        $uriString = (string) $easy->request->getUri();
+        $uriString = (string) Utils::redactUserinfoInUri($easy->request->getUri());
         if ($uriString !== '' && false === \strpos($ctx['error'], $uriString)) {
             $message .= \sprintf(' for %s', $uriString);
         }

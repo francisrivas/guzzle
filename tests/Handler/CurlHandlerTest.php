@@ -32,6 +32,19 @@ class CurlHandlerTest extends TestCase
         $handler($request, ['timeout' => 0.001, 'connect_timeout' => 0.001])->wait();
     }
 
+    public function testRedactsUserInfoInErrors()
+    {
+        $handler = new CurlHandler();
+        $request = new Request('GET', 'http://my_user:secretPass@localhost:123');
+
+        try {
+            $handler($request, ['timeout' => 0.001, 'connect_timeout' => 0.001])->wait();
+            $this->fail('Must throw an Exception.');
+        } catch (\Throwable $e) {
+            $this->assertStringNotContainsString('secretPass', $e->getMessage());
+        }
+    }
+
     public function testReusesHandles()
     {
         Server::flush();
