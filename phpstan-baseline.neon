@@ -146,6 +146,11 @@ parameters:
 			path: src/Handler/CurlMultiHandler.php
 
 		-
+			message: "#^Strict comparison using \\=\\=\\= between false and resource will always evaluate to false\\.$#"
+			count: 1
+			path: src/Handler/CurlMultiHandler.php
+
+		-
 			message: "#^Property GuzzleHttp\\\\Handler\\\\EasyHandle\\:\\:\\$handle has unknown class CurlHandle as its type\\.$#"
 			count: 1
 			path: src/Handler/EasyHandle.php

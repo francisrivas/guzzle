@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<files psalm-version="5.15.0@5c774aca4746caf3d239d9c8cadb9f882ca29352">
+<files psalm-version="5.25.0@01a8eb06b9e9cc6cfb6a320bf9fb14331919d505">
   <file src="src/Client.php">
     <PossiblyUndefinedVariable>
-      <code>$options</code>
+      <code><![CDATA[$options]]></code>
     </PossiblyUndefinedVariable>
     <UndefinedInterfaceMethod>
-      <code>getBoundary</code>
+      <code><![CDATA[getBoundary]]></code>
     </UndefinedInterfaceMethod>
   </file>
   <file src="src/Cookie/CookieJar.php">
@@ -16,42 +16,42 @@
       <code><![CDATA[\ArrayIterator<int, SetCookie>]]></code>
     </InvalidReturnType>
     <PossiblyFalseOperand>
-      <code>$result</code>
+      <code><![CDATA[$result]]></code>
     </PossiblyFalseOperand>
   </file>
   <file src="src/Cookie/SetCookie.php">
     <RedundantCast>
-      <code>(bool) $discard</code>
-      <code>(bool) $httpOnly</code>
-      <code>(bool) $secure</code>
-      <code>(int) $maxAge</code>
-      <code>(string) $domain</code>
-      <code>(string) $name</code>
-      <code>(string) $path</code>
-      <code>(string) $timestamp</code>
-      <code>(string) $value</code>
+      <code><![CDATA[(bool) $discard]]></code>
+      <code><![CDATA[(bool) $httpOnly]]></code>
+      <code><![CDATA[(bool) $secure]]></code>
+      <code><![CDATA[(int) $maxAge]]></code>
+      <code><![CDATA[(string) $domain]]></code>
+      <code><![CDATA[(string) $name]]></code>
+      <code><![CDATA[(string) $path]]></code>
+      <code><![CDATA[(string) $timestamp]]></code>
+      <code><![CDATA[(string) $value]]></code>
     </RedundantCast>
     <UndefinedFunction>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a bool to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a bool to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a bool to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string or null to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing an int or null to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing an int, string or null to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a bool to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a bool to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a bool to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string or null to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing a string to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing an int or null to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing an int, string or null to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
     </UndefinedFunction>
   </file>
   <file src="src/Handler/CurlFactory.php">
     <FalseOperand>
-      <code>$timeoutRequiresNoSignal</code>
+      <code><![CDATA[$timeoutRequiresNoSignal]]></code>
     </FalseOperand>
     <InvalidOperand>
       <code><![CDATA[$options['connect_timeout'] < 1]]></code>
     </InvalidOperand>
     <PossiblyFalseOperand>
-      <code>$timeoutRequiresNoSignal</code>
+      <code><![CDATA[$timeoutRequiresNoSignal]]></code>
     </PossiblyFalseOperand>
     <PossiblyInvalidArgument>
       <code><![CDATA[$easy->handle]]></code>
@@ -60,22 +60,25 @@
       <code><![CDATA[$easy->handle]]></code>
       <code><![CDATA[$easy->handle]]></code>
       <code><![CDATA[$easy->handle]]></code>
-      <code>$handle</code>
-      <code>$resource</code>
-      <code>$resource</code>
-      <code>$resource</code>
-      <code>$resource</code>
-      <code>$resource</code>
-      <code>$resource</code>
-      <code>$sslKey</code>
+      <code><![CDATA[$handle]]></code>
+      <code><![CDATA[$resource]]></code>
+      <code><![CDATA[$resource]]></code>
+      <code><![CDATA[$resource]]></code>
+      <code><![CDATA[$resource]]></code>
+      <code><![CDATA[$resource]]></code>
+      <code><![CDATA[$resource]]></code>
+      <code><![CDATA[$sslKey]]></code>
     </PossiblyInvalidArgument>
     <PossiblyInvalidCast>
-      <code>$sslKey</code>
+      <code><![CDATA[$sslKey]]></code>
     </PossiblyInvalidCast>
     <UndefinedDocblockClass>
-      <code>private $handles = [];</code>
-      <code>resource[]|\CurlHandle[]</code>
+      <code><![CDATA[private $handles = [];]]></code>
+      <code><![CDATA[resource[]|\CurlHandle[]]]></code>
     </UndefinedDocblockClass>
+    <UndefinedVariable>
+      <code><![CDATA[$startingResponse]]></code>
+    </UndefinedVariable>
   </file>
   <file src="src/Handler/CurlHandler.php">
     <PossiblyInvalidArgument>
@@ -104,36 +107,37 @@
       <code><![CDATA[isset($this->_mh)]]></code>
     </RedundantPropertyInitializationCheck>
     <TypeDoesNotContainType>
-      <code>false === $multiHandle</code>
+      <code><![CDATA[false === $multiHandle]]></code>
     </TypeDoesNotContainType>
     <UndefinedDocblockClass>
-      <code>resource|\CurlMultiHandle</code>
-      <code>resource|\CurlMultiHandle</code>
+      <code><![CDATA[resource|\CurlMultiHandle]]></code>
+      <code><![CDATA[resource|\CurlMultiHandle]]></code>
     </UndefinedDocblockClass>
     <UndefinedFunction>
-      <code>trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing an integer to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)</code>
+      <code><![CDATA[trigger_deprecation('guzzlehttp/guzzle', '7.4', 'Not passing an integer to %s::%s() is deprecated and will cause an error in 8.0.', __CLASS__, __FUNCTION__)]]></code>
     </UndefinedFunction>
   </file>
   <file src="src/Handler/EasyHandle.php">
     <InvalidReturnType>
-      <code>void</code>
+      <code><![CDATA[void]]></code>
     </InvalidReturnType>
     <UndefinedDocblockClass>
-      <code>resource|\CurlHandle</code>
+      <code><![CDATA[resource|\CurlHandle]]></code>
     </UndefinedDocblockClass>
   </file>
   <file src="src/Handler/MockHandler.php">
     <ArgumentTypeCoercion>
-      <code>(int) $options['delay'] * 1000</code>
+      <code><![CDATA[(int) $options['delay'] * 1000]]></code>
     </ArgumentTypeCoercion>
   </file>
   <file src="src/Handler/StreamHandler.php">
-    <ImplicitToStringCast>
-      <code>$uri</code>
-    </ImplicitToStringCast>
     <RedundantCondition>
-      <code>empty($options)</code>
+      <code><![CDATA[!empty($options)]]></code>
+      <code><![CDATA[empty($options)]]></code>
     </RedundantCondition>
+    <UndefinedVariable>
+      <code><![CDATA[$http_response_header]]></code>
+    </UndefinedVariable>
   </file>
   <file src="src/MessageFormatter.php">
     <InvalidArgument>
@@ -246,13 +250,8 @@
   </file>
   <file src="src/Middleware.php">
     <InvalidArgument>
-      <code>$request</code>
+      <code><![CDATA[$request]]></code>
     </InvalidArgument>
-  </file>
-  <file src="src/RedirectMiddleware.php">
-    <ImplicitToStringCast>
-      <code>$location</code>
-    </ImplicitToStringCast>
   </file>
   <file src="src/RetryMiddleware.php">
     <TooManyArguments>
@@ -261,14 +260,14 @@
   </file>
   <file src="src/Utils.php">
     <ArgumentTypeCoercion>
-      <code>$depth</code>
-      <code>$depth</code>
+      <code><![CDATA[$depth]]></code>
+      <code><![CDATA[$depth]]></code>
     </ArgumentTypeCoercion>
     <ForbiddenCode>
-      <code>\var_dump($input)</code>
+      <code><![CDATA[\var_dump($input)]]></code>
     </ForbiddenCode>
     <PossiblyInvalidCast>
-      <code>$_SERVER[$name]</code>
+      <code><![CDATA[$_SERVER[$name]]]></code>
     </PossiblyInvalidCast>
   </file>
 </files>
