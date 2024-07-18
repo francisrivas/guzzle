@@ -254,15 +254,17 @@ class CurlFactory implements CurlFactoryInterface
 
         $uri = $easy->request->getUri();
 
+        $sanitizedError = self::sanitizeCurlError($ctx['error'] ?? '', $uri);
+
         $message = \sprintf(
             'cURL error %s: %s (%s)',
             $ctx['errno'],
-            self::sanitizeCurlError($ctx['error'] ?? '', $uri),
+            $sanitizedError,
             'see https://curl.haxx.se/libcurl/c/libcurl-errors.html'
         );
 
         $redactedUriString = \GuzzleHttp\Psr7\Utils::redactUserInfo($uri)->__toString();
-        if ($redactedUriString !== '' && false === \strpos($ctx['error'], $redactedUriString)) {
+        if ($redactedUriString !== '' && false === \strpos($sanitizedError, $redactedUriString)) {
             $message .= \sprintf(' for %s', $redactedUriString);
         }
 
