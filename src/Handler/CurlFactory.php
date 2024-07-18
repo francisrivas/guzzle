@@ -263,9 +263,11 @@ class CurlFactory implements CurlFactoryInterface
             'see https://curl.haxx.se/libcurl/c/libcurl-errors.html'
         );
 
-        $redactedUriString = \GuzzleHttp\Psr7\Utils::redactUserInfo($uri)->__toString();
-        if ($redactedUriString !== '' && false === \strpos($sanitizedError, $redactedUriString)) {
-            $message .= \sprintf(' for %s', $redactedUriString);
+        if ('' !== $sanitizedError) {
+            $redactedUriString = \GuzzleHttp\Psr7\Utils::redactUserInfo($uri)->__toString();
+            if ($redactedUriString !== '' && false === \strpos($sanitizedError, $redactedUriString)) {
+                $message .= \sprintf(' for %s', $redactedUriString);
+            }
         }
 
         // Create a connection exception if it was a specific error code.
@@ -278,6 +280,10 @@ class CurlFactory implements CurlFactoryInterface
 
     private static function sanitizeCurlError(string $error, UriInterface $uri): string
     {
+        if ('' === $error) {
+            return $error;
+        }
+
         $baseUri = $uri->withQuery('')->withFragment('');
         $baseUriString = $baseUri->__toString();
 
