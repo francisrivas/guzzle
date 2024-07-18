@@ -261,9 +261,8 @@ class CurlFactory implements CurlFactoryInterface
             'see https://curl.haxx.se/libcurl/c/libcurl-errors.html'
         );
 
-        $originalUriString = $uri->__toString();
-        if ($originalUriString !== '' && false === \strpos($ctx['error'], $originalUriString)) {
-            $redactedUriString = \GuzzleHttp\Psr7\Utils::redactUserInfo($uri)->__toString();
+        $redactedUriString = \GuzzleHttp\Psr7\Utils::redactUserInfo($uri)->__toString();
+        if ($redactedUriString !== '' && false === \strpos($ctx['error'], $redactedUriString)) {
             $message .= \sprintf(' for %s', $redactedUriString);
         }
 
