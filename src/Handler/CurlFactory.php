@@ -251,15 +251,19 @@ class CurlFactory implements CurlFactoryInterface
             );
         }
 
+        $uri = $easy->request->getUri();
+
         $message = \sprintf(
             'cURL error %s: %s (%s)',
             $ctx['errno'],
-            $ctx['error'],
+            self::sanitizeCurlError($ctx['error'] ?? '', $uri),
             'see https://curl.haxx.se/libcurl/c/libcurl-errors.html'
         );
-        $uriString = (string) $easy->request->getUri();
-        if ($uriString !== '' && false === \strpos($ctx['error'], $uriString)) {
-            $message .= \sprintf(' for %s', $uriString);
+
+        $originalUriString = $uri->__toString();
+        if ($originalUriString !== '' && false === \strpos($ctx['error'], $originalUriString)) {
+            $redactedUriString = \GuzzleHttp\Psr7\Utils::redactUserInfo($uri)->__toString();
+            $message .= \sprintf(' for %s', $redactedUriString);
         }
 
         // Create a connection exception if it was a specific error code.
@@ -268,6 +272,20 @@ class CurlFactory implements CurlFactoryInterface
             : new RequestException($message, $easy->request, $easy->response, null, $ctx);
 
         return P\Create::rejectionFor($error);
+    }
+
+    private static function sanitizeCurlError(string $error, UriInterface $uri): string
+    {
+        $baseUri = $uri->withQuery('')->withFragment('');
+        $baseUriString = $baseUri->__toString();
+
+        if ('' === $baseUriString) {
+            return $error;
+        }
+
+        $redactedUriString = \GuzzleHttp\Psr7\Utils::redactUserInfo($baseUri)->__toString();
+
+        return str_replace($baseUriString, $redactedUriString, $error);
     }
 
     /**
