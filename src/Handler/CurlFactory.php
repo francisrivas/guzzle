@@ -417,7 +417,7 @@ class CurlFactory implements CurlFactoryInterface
         $timeoutRequiresNoSignal = false;
         if (isset($options['timeout'])) {
             $timeoutRequiresNoSignal |= $options['timeout'] < 1;
-            $conf[\CURLOPT_TIMEOUT_MS] = $options['timeout'] * 1000;
+            $conf[\CURLOPT_TIMEOUT_MS] = (int)$options['timeout'] * 1000;
         }
 
         // CURL default value is CURL_IPRESOLVE_WHATEVER
