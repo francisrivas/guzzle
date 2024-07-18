@@ -943,4 +943,28 @@ class CurlFactoryTest extends TestCase
 
         $a(new Psr7\Request('GET', Server::$url.'guzzle-server/bad-status'), [])->wait();
     }
+
+    public function testInvalidTimeout()
+    {
+        $f = new CurlFactory(3);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid timeout: it must be greater or equal than 0.001 or zero');
+        $f->create(new Psr7\Request('GET', Server::$url), [
+            'timeout' => 0.0001,
+            'connect_timeout' => 0,
+        ]);
+    }
+
+    public function testInvalidConnectTimeout()
+    {
+        $f = new CurlFactory(3);
+
+        $this->expectException(\InvalidArgumentException::class);
+        $this->expectExceptionMessage('Invalid connect_timeout: it must be greater or equal than 0.001 or zero');
+        $f->create(new Psr7\Request('GET', Server::$url), [
+            'timeout' => 0,
+            'connect_timeout' => 0.0001,
+        ]);
+    }
 }

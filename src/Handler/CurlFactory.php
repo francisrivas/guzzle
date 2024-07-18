@@ -417,7 +417,11 @@ class CurlFactory implements CurlFactoryInterface
         $timeoutRequiresNoSignal = false;
         if (isset($options['timeout'])) {
             $timeoutRequiresNoSignal |= $options['timeout'] < 1;
-            $conf[\CURLOPT_TIMEOUT_MS] = $options['timeout'] * 1000;
+            $conf[\CURLOPT_TIMEOUT_MS] = (int) ($options['timeout'] * 1000);
+
+            if ($conf[\CURLOPT_TIMEOUT_MS] === 0 && $options['timeout'] > 0) {
+                throw new \InvalidArgumentException('Invalid timeout: it must be greater or equal than 0.001 or zero');
+            }
         }
 
         // CURL default value is CURL_IPRESOLVE_WHATEVER
@@ -431,7 +435,11 @@ class CurlFactory implements CurlFactoryInterface
 
         if (isset($options['connect_timeout'])) {
             $timeoutRequiresNoSignal |= $options['connect_timeout'] < 1;
-            $conf[\CURLOPT_CONNECTTIMEOUT_MS] = $options['connect_timeout'] * 1000;
+            $conf[\CURLOPT_CONNECTTIMEOUT_MS] = (int) ($options['connect_timeout'] * 1000);
+
+            if ($conf[\CURLOPT_CONNECTTIMEOUT_MS] === 0 && $options['connect_timeout'] > 0) {
+                throw new \InvalidArgumentException('Invalid connect_timeout: it must be greater or equal than 0.001 or zero');
+            }
         }
 
         if ($timeoutRequiresNoSignal && \strtoupper(\substr(\PHP_OS, 0, 3)) !== 'WIN') {
