@@ -102,6 +102,9 @@
       <code><![CDATA[$this->_mh]]></code>
       <code><![CDATA[$this->_mh]]></code>
       <code><![CDATA[$this->_mh]]></code>
+      <code><![CDATA[$this->_mh]]></code>
+      <code><![CDATA[$this->_mh]]></code>
+      <code><![CDATA[$this->_mh]]></code>
     </PossiblyInvalidArgument>
     <RedundantPropertyInitializationCheck>
       <code><![CDATA[isset($this->_mh)]]></code>
