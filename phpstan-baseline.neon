@@ -36,11 +36,6 @@ parameters:
 			path: src/Cookie/SetCookie.php
 
 		-
-			message: "#^Unsafe call to private method GuzzleHttp\\\\Exception\\\\RequestException\\:\\:obfuscateUri\\(\\) through static\\:\\:\\.$#"
-			count: 1
-			path: src/Exception/RequestException.php
-
-		-
 			message: "#^Cannot access offset 'features' on array\\|false\\.$#"
 			count: 3
 			path: src/Handler/CurlFactory.php

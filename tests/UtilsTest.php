@@ -3,7 +3,6 @@
 namespace GuzzleHttp\Test;
 
 use GuzzleHttp;
-use GuzzleHttp\Psr7\Uri;
 use GuzzleHttp\Utils;
 use PHPUnit\Framework\TestCase;
 
