@@ -186,6 +186,11 @@ parameters:
 			path: src/Middleware.php
 
 		-
+			message: "#^Cannot access offset 'version' on array\\|false\\.$#"
+			count: 1
+			path: src/Utils.php
+
+		-
 			message: "#^Method GuzzleHttp\\\\Utils\\:\\:jsonDecode\\(\\) should return array\\|bool\\|float\\|int\\|object\\|string\\|null but returns mixed\\.$#"
 			count: 1
 			path: src/Utils.php
