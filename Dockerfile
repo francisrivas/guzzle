@@ -1,4 +1,4 @@
-FROM composer:latest as setup
+FROM composer:latest As setup
 
 WORKDIR /guzzle
 
