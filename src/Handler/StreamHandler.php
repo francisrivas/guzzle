@@ -409,13 +409,4 @@ class StreamHandler
 
         return $context;
     }
-
-    private static function callArray(array $functions): callable
-    {
-        return static function (...$args) use ($functions) {
-            foreach ($functions as $fn) {
-                $fn(...$args);
-            }
-        };
-    }
 }
