@@ -181,17 +181,6 @@ class CurlMultiHandler
     }
 
     /**
-     * Runs \curl_multi_exec() inside the event loop, to prevent busy looping
-     */
-    private function tickInQueue(): void
-    {
-        if (\curl_multi_exec($this->_mh, $this->active) === \CURLM_CALL_MULTI_PERFORM) {
-            \curl_multi_select($this->_mh, 0);
-            P\Utils::queue()->add(Closure::fromCallable([$this, 'tickInQueue']));
-        }
-    }
-
-    /**
      * Runs until all outstanding connections have completed.
      */
     public function execute(): void
