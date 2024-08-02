@@ -10,4 +10,4 @@ FROM php:7.3
 
 WORKDIR /guzzle
 
-COPY --from=setup /guzzle /guzzle
+COPY --FROM=setup /guzzle /guzzle
