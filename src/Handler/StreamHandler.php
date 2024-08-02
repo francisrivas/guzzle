@@ -410,47 +410,6 @@ class StreamHandler
         return $context;
     }
 
-    /**
-     * Parses the given proxy URL to make it compatible with the format PHP's stream context expects.
-     */
-    private function parse_proxy(string $url): array
-    {
-        $parsed = \parse_url($url);
-
-        if ($parsed !== false && isset($parsed['scheme']) && $parsed['scheme'] === 'http') {
-            if (isset($parsed['host']) && isset($parsed['port'])) {
-                $auth = null;
-                if (isset($parsed['user']) && isset($parsed['pass'])) {
-                    $auth = \base64_encode("{$parsed['user']}:{$parsed['pass']}");
-                }
-
-                return [
-                    'proxy' => "tcp://{$parsed['host']}:{$parsed['port']}",
-                    'auth' => $auth ? "Basic {$auth}" : null,
-                ];
-            }
-        }
-
-        // Return proxy as-is.
-        return [
-            'proxy' => $url,
-            'auth' => null,
-        ];
-    }
-
-    private static function addNotification(array &$params, callable $notify): void
-    {
-        // Wrap the existing function if needed.
-        if (!isset($params['notification'])) {
-            $params['notification'] = $notify;
-        } else {
-            $params['notification'] = self::callArray([
-                $params['notification'],
-                $notify,
-            ]);
-        }
-    }
-
     private static function callArray(array $functions): callable
     {
         return static function (...$args) use ($functions) {
