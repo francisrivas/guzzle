@@ -71,14 +71,13 @@ class CurlMultiHandler
         $this->factory = $options['handle_factory'] ?? new CurlFactory(50);
 
         if ($selectTimeout = Utils::getenv('GUZZLE_CURL_SELECT_TIMEOUT')) {
-    if (version_compare(GUZZLE_VERSION, '7.2.0', '>=')) {
-        trigger_error('Using environment variable GUZZLE_CURL_SELECT_TIMEOUT is deprecated. Use option "select_timeout" instead.', \E_USER_DEPRECATED);
-    }
-    $this->selectTimeout = (int) $selectTimeout;
-} else {
-    $this->selectTimeout = 1;
-}
-
+            if (version_compare(GUZZLE_VERSION, '7.2.0', '>=')) {
+                trigger_error('Using environment variable GUZZLE_CURL_SELECT_TIMEOUT is deprecated. Use option "select_timeout" instead.', \E_USER_DEPRECATED);
+            }
+            $this->selectTimeout = (int) $selectTimeout;
+        } else {
+            $this->selectTimeout = 1;
+        }
 
         $this->options = $options['options'] ?? [];
 
