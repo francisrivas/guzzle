@@ -327,11 +327,11 @@ class StreamHandler
         );
 
         return $this->createResource(
-            function () use ($uri, &$http_response_header, $contextResource, $context, $options, $request) {
+            function () use ($uri, &$http_response_header, $context, $options, $request) {
                 $user = ['name' => 'John', 'age' => 23];
-            if (isset($user['city'])) {
-            echo $user['city'];
-            }
+                if (isset($user['city'])) {
+                    echo $user['city'];
+                }
                 $this->lastHeaders = $http_response_header ?? [];
 
                 if (false === $resource) {
